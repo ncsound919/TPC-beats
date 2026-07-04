@@ -1,0 +1,202 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ui.spec.ts >> UI mode switching works
+- Location: tests/ui.spec.ts:3:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('#tab-sampler')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - generic [ref=e8]: Project
+          - generic [ref=e9]: HYBRID_AGENT_01
+        - generic [ref=e11]:
+          - generic [ref=e12]: Tempo
+          - generic [ref=e13]:
+            - button "Decrease BPM" [ref=e14]: ▼
+            - spinbutton [ref=e15]: "92"
+            - button "Increase BPM" [ref=e16]: ▲
+            - generic [ref=e17]: BPM
+        - generic [ref=e18]:
+          - generic [ref=e19]: Global Swing
+          - slider [ref=e20]: "54"
+          - generic [ref=e21]: 54%
+        - button "Click OFF" [ref=e22]:
+          - generic [ref=e23]: Click
+          - generic [ref=e24]: "OFF"
+      - generic [ref=e25]:
+        - button "REC READY" [ref=e26]:
+          - generic [ref=e28]: REC READY
+        - generic [ref=e29]: 001.01.000
+      - generic [ref=e30]:
+        - button "Undo" [ref=e31]
+        - button "Redo" [ref=e32]
+        - button "Load Project" [ref=e33]
+        - button "Restore Autosave" [ref=e34]
+        - button "Save Project" [ref=e35]
+        - button "PLAY" [ref=e36]
+    - generic [ref=e37]:
+      - button "✂️ MPC Sampler" [ref=e38]
+      - button "🎛️ MPC Pads & Seq" [ref=e39]
+      - button "Juno Synth" [ref=e40]
+      - button "DX7 Synth" [ref=e41]
+      - button "🎹 Chord Generator" [ref=e42]
+      - button "808 Rompler" [ref=e43]
+      - button "Mixer" [ref=e44]
+  - main [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "🪵 THE CRATE" [level=2] [ref=e49]
+          - generic [ref=e50]:
+            - button "BATCH" [ref=e51]
+            - generic [ref=e52]: 0/0
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - textbox "Search crates..." [ref=e55]
+            - button "📂" [ref=e56]
+          - generic [ref=e57]:
+            - button "💿 ALL" [ref=e58]:
+              - generic [ref=e59]: 💿
+              - generic [ref=e60]: ALL
+            - button "🥾 KICKS" [ref=e61]:
+              - generic [ref=e62]: 🥾
+              - generic [ref=e63]: KICKS
+            - button "🥁 SNARES" [ref=e64]:
+              - generic [ref=e65]: 🥁
+              - generic [ref=e66]: SNARES
+            - button "🔔 HATS" [ref=e67]:
+              - generic [ref=e68]: 🔔
+              - generic [ref=e69]: HATS
+            - button "🌀 LOOPS" [ref=e70]:
+              - generic [ref=e71]: 🌀
+              - generic [ref=e72]: LOOPS
+            - button "🌌 FX" [ref=e73]:
+              - generic [ref=e74]: 🌌
+              - generic [ref=e75]: FX
+            - button "💿 CRASH" [ref=e76]:
+              - generic [ref=e77]: 💿
+              - generic [ref=e78]: CRASH
+            - button "🪘 PERC" [ref=e79]:
+              - generic [ref=e80]: 🪘
+              - generic [ref=e81]: PERC
+            - button "★ FAVS" [ref=e82]:
+              - generic [ref=e83]: ★
+              - generic [ref=e84]: FAVS
+        - generic [ref=e86]:
+          - generic [ref=e87]: 💿
+          - paragraph [ref=e88]: NO RECORDS FOUND
+          - paragraph [ref=e89]: Drop audio files here
+        - generic [ref=e90]:
+          - generic [ref=e91]: Drag to pads • Double‑click name to edit • 0 total
+          - generic [ref=e92]: ✂️ Chop • 📊 BPM • 💾 Persistent
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - heading "MPC SAMPLER & CHOP LAB" [level=2] [ref=e97]:
+              - generic [ref=e98]: MPC SAMPLER & CHOP LAB
+            - paragraph [ref=e99]: Slice samples into chops using manual clicks, auto regions, or transient detection.
+          - generic [ref=e100]:
+            - button "PLAY" [disabled] [ref=e101]
+            - button "UPLOAD SAMPLE" [ref=e103]
+            - generic [ref=e105]:
+              - button "CHOP MODE" [ref=e106]
+              - button "EDIT PARAMS" [ref=e107]
+        - generic [ref=e110]:
+          - generic [ref=e111]: 📥
+          - generic [ref=e112]: No audio sample loaded
+          - button "Load Sample File" [ref=e113]
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - heading "ONE-BUTTON FAST PAD UPLOAD & EXPORT" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Auto-generate a full program map of your chops, assign them directly to the 16 MPC play pads, and prepare the performance grid instantly for fast music creation.
+          - generic [ref=e120]:
+            - generic [ref=e121] [cursor=pointer]:
+              - checkbox "AUTO-JUMP TO PADS/SEQ" [checked] [ref=e122]
+              - text: AUTO-JUMP TO PADS/SEQ
+            - button "⚡ EXPORT & MAP TO PADS" [disabled]:
+              - generic: ⚡ EXPORT & MAP TO PADS
+  - contentinfo [ref=e123]:
+    - generic [ref=e124]:
+      - generic [ref=e126]: "AGENT_ORCHESTRATOR: IDLE"
+      - generic [ref=e132]:
+        - generic [ref=e133]: "\"Deterministic sequence detected. Synchronizing MPC master clock...\""
+        - generic [ref=e134]: BPM 140 • BAR 1
+      - generic [ref=e135]: "MEM: 4.2GB / CPU: 12%"
+    - generic [ref=e136]:
+      - button "⏺" [ref=e137]
+      - button "⏹" [ref=e138]
+      - button "▶" [ref=e139]
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test('UI mode switching works', async ({ page }) => {
+  4  |   await page.goto('/');
+  5  |   await page.waitForLoadState('networkidle');
+  6  | 
+  7  |   const tabs = [
+  8  |     { id: '#tab-sampler', name: 'sampler' },
+  9  |     { id: '#tab-pads_seq', name: 'pads_seq' },
+  10 |     { id: '#tab-synth', name: 'synth' },
+  11 |     { id: '#tab-dx7', name: 'dx7' },
+  12 |     { id: '#tab-progression', name: 'progression' },
+  13 |     { id: '#tab-808', name: '808' },
+  14 |     { id: '#tab-mixer', name: 'mixer' },
+  15 |   ];
+  16 | 
+  17 |   for (const tab of tabs) {
+  18 |     const button = page.locator(tab.id);
+> 19 |     await button.click({ force: true });
+     |                  ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  20 |     await expect(button).toHaveClass(/shadow-\[/);
+  21 |   }
+  22 | });
+  23 | 
+  24 | test('Transport controls work', async ({ page }) => {
+  25 |   await page.goto('/');
+  26 |   await page.waitForLoadState('networkidle');
+  27 | 
+  28 |   const recordBtn = page.locator('#btn-record');
+  29 |   const stopBtn = page.locator('#btn-stop');
+  30 |   const playBtn = page.locator('#btn-play');
+  31 | 
+  32 |   await recordBtn.waitFor({ state: 'visible' });
+  33 |   await recordBtn.click({ force: true });
+  34 |   await expect(recordBtn).toHaveClass(/bg-red-900\/50/);
+  35 | 
+  36 |   await playBtn.waitFor({ state: 'visible' });
+  37 |   await playBtn.click({ force: true });
+  38 |   await expect(playBtn).toHaveClass(/bg-cyan-600/);
+  39 | 
+  40 |   await stopBtn.waitFor({ state: 'visible' });
+  41 |   await stopBtn.click({ force: true });
+  42 |   await expect(playBtn).not.toHaveClass(/bg-cyan-600/);
+  43 | });
+  44 | 
+```
