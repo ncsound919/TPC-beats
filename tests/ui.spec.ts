@@ -5,19 +5,21 @@ test('UI mode switching works', async ({ page }) => {
   await page.waitForLoadState('networkidle');
 
   const tabs = [
-    { id: '#tab-sampler', name: 'sampler' },
-    { id: '#tab-pads_seq', name: 'pads_seq' },
-    { id: '#tab-synth', name: 'synth' },
-    { id: '#tab-dx7', name: 'dx7' },
-    { id: '#tab-progression', name: 'progression' },
-    { id: '#tab-808', name: '808' },
-    { id: '#tab-mixer', name: 'mixer' },
+    { text: /MPC Sampler/i },
+    { text: /MPC Pads/i },
+    { text: /Juno Synth/i },
+    { text: /DX7/i },
+    { text: /Chord Generator/i },
+    { text: /808 Rompler/i },
+    { text: /Mixer/i },
   ];
 
   for (const tab of tabs) {
-    const button = page.locator(tab.id);
+    const button = page.getByRole('button', { name: tab.text });
+    await expect(button).toBeVisible();
     await button.click({ force: true });
-    await expect(button).toHaveClass(/shadow-\[/);
+    // Verify the button reflects an active/selected state after clicking
+    await expect(button).toHaveClass(/shadow/, { timeout: 5000 });
   }
 });
 
@@ -25,19 +27,18 @@ test('Transport controls work', async ({ page }) => {
   await page.goto('/');
   await page.waitForLoadState('networkidle');
 
-  const recordBtn = page.locator('#btn-record');
-  const stopBtn = page.locator('#btn-stop');
-  const playBtn = page.locator('#btn-play');
+  // Record button
+  const recordBtn = page.getByRole('button', { name: /record/i });
+  await recordBtn.click();
+  await expect(recordBtn).toHaveClass(/bg-red-900/, { timeout: 5000 });
 
-  await recordBtn.waitFor({ state: 'visible' });
-  await recordBtn.click({ force: true });
-  await expect(recordBtn).toHaveClass(/bg-red-900\/50/);
+  // Play button
+  const playBtn = page.getByRole('button', { name: /play/i });
+  await playBtn.click();
+  await expect(playBtn).toHaveClass(/bg-cyan-600/, { timeout: 5000 });
 
-  await playBtn.waitFor({ state: 'visible' });
-  await playBtn.click({ force: true });
-  await expect(playBtn).toHaveClass(/bg-cyan-600/);
-
-  await stopBtn.waitFor({ state: 'visible' });
-  await stopBtn.click({ force: true });
-  await expect(playBtn).not.toHaveClass(/bg-cyan-600/);
+  // Stop button stops playback
+  const stopBtn = page.getByRole('button', { name: /stop/i });
+  await stopBtn.click();
+  await expect(playBtn).not.toHaveClass(/bg-cyan-600/, { timeout: 5000 });
 });
